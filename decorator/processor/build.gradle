@@ -1,0 +1,21 @@
+repositories {
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'java'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+    implementation project(':annotation')
+    //compile 'com.eyeem.decorator:annotation:0.0.1-SNAPSHOT'
+    implementation 'com.squareup:javapoet:1.7.0'
+// http://mvnrepository.com/artifact/org.jvnet.sorcerer/sorcerer-javac
+    implementation group: 'org.jvnet.sorcerer', name: 'sorcerer-javac', version: '0.8'
+
+}
+
+apply from: '../gradle-mvn-push.gradle'
